@@ -64,5 +64,37 @@ sudo bash install_docker.sh
 
 ## 3. 验证安装
 安装完成后，可以使用以下命令验证：
-- 查看版本：`docker -v` 和 `docker compose version`
-- 查看加速器：`sudo docker info | grep -i mirror`
+
+---
+
+# install_node_pnpm.sh
+
+该脚本用于在 Ubuntu/Debian 系统上快速搭建 Node.js 开发环境。
+
+## 1. 安装内容
+- **NVM (Node Version Manager)**：用于管理多个 Node.js 版本的工具。
+- **Node.js (LTS)**：通过 NVM 自动安装并设置最新的长期支持版本。
+- **pnpm**：高效的现代包管理器。
+
+## 2. 执行方式
+
+### 方式 A：推荐方式
+```bash
+chmod +x install_node_pnpm.sh
+./install_node_pnpm.sh
+```
+
+### 方式 B：直接执行
+```bash
+bash install_node_pnpm.sh
+```
+
+> [!NOTE]
+> 建议以普通用户身份运行此脚本。安装完成后，请执行 `source ~/.bashrc` 或重新连接终端以激活环境变量。
+
+## 3. 验证安装
+```bash
+nvm --version
+node -v
+pnpm -v
+```
