@@ -36,4 +36,33 @@ sudo bash install_nginx.sh
 
 ## 总结建议
 *   如果你是脚本的长期维护者，建议使用 `chmod +x` 赋予权限，这样以后只需输入 `./文件名` 即可，更加直观。
-*   如果你只是临时运行一次，且不想改动文件属性，使用 `bash` 直接调用更加方便。
+
+---
+
+# install_docker.sh
+
+该脚本用于在 Ubuntu/Debian 系统上自动化安装 Docker 环境并配置国内镜像加速器。
+
+## 1. 安装内容
+- **Docker Engine**：核心运行环境。
+- **Docker Compose V2**：现代容器编排工具（命令为 `docker compose`）。
+- **Docker Buildx**：下一代镜像构建工具。
+- **镜像加速器**：包含腾讯云、DaoCloud 等多个国内镜像源，解决拉取镜像慢的问题。
+
+## 2. 执行方式
+
+### 方式 A：推荐方式
+```bash
+chmod +x install_docker.sh
+sudo ./install_docker.sh
+```
+
+### 方式 B：临时运行
+```bash
+sudo bash install_docker.sh
+```
+
+## 3. 验证安装
+安装完成后，可以使用以下命令验证：
+- 查看版本：`docker -v` 和 `docker compose version`
+- 查看加速器：`sudo docker info | grep -i mirror`
